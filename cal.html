@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="calculator">
+        <input id="display">
+        <div id="keys">
+            <button onclick="display.value =' '" class="operator ">AC</button>
+
+            <button onclick="setFocues('.')" class="operator">.</button>
+            <button onclick="setFocues('/')" class="operator">/</button>
+            <button onclick="setFocues('*')" class="operator left">*</button>
+            <button onclick="setFocues('7')">7</button>
+            <button onclick="setFocues('8')">8</button>
+            <button onclick="setFocues('9')">9</button>
+            <button onclick="setFocues('-')" class="operator left">-</button>
+            <button onclick="setFocues('4')">4</button>
+            <button onclick="setFocues('5')">5</button>
+            <button onclick="setFocues('6')">6</button>
+            <button onclick="setFocues('+')" class="operator left">+</button>
+            <button onclick="setFocues('1')">1</button>
+            <button onclick="setFocues('2')">2</button>
+            <button onclick="setFocues('3')">3</button>
+            <button onclick="display.value=display.value.toString().slice(0,-1)" class="operator left">DEL</button>
+            <button onclick="setFocues('00')">00</button>
+            <button onclick="setFocues('0')">0</button>
+            <button onclick="validate()" class="equ">=</button>
+        </div>
+
+
+    </div>
+    <script>
+
+
+        var wage = document.getElementById("display");
+        wage.addEventListener("keydown", function (e) {
+            if (e.code === "Enter" || e.code === "NumpadEnter") {
+                validate();
+            }
+        });
+
+        function setFocues(value) {
+            display.value += value;
+            document.getElementById("display").focus();
+
+        }
+        function validate() {
+            display.value = eval(display.value)
+            //validation of the input...
+        }
+    </script>
+</body>
+
+</html>
